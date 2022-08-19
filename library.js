@@ -13,12 +13,19 @@ Book.prototype.info = function() {
     this.pages + ' pages, ' + this.read;
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+    showLibrary();
+}
+
 Book.prototype.remove = function() {
     myLibrary.splice(this.index, 1);
+    showLibrary();
 }
 
 Book.prototype.addToLibrary = function() {
     myLibrary.push(this);
+    showLibrary();
 }
 
 Book.prototype.createCard = function() {
@@ -40,6 +47,9 @@ Book.prototype.createCard = function() {
 }
 
 function showLibrary() {
+    while (cardCatalogue.hasChildNodes()) {
+        cardCatalogue.removeChild(cardCatalogue.firstChild)
+    }
     for (book in myLibrary) {
         myLibrary[book].createCard();
     }
