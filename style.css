@@ -7,7 +7,6 @@
 }
 
 .card {
-    width: 10rem;
-    aspect-ratio: 1;
+    width: 20rem;
     border-style: solid;
 }

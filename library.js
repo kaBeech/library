@@ -28,12 +28,23 @@ function createCard(book) {
     card.classList.add('card');
     const title = document.createElement('h2');
     title.innerHTML = 'Title: ' + myLibrary[book].title;
+    const author = document.createElement('h3');
+    author.innerHTML = 'Author: ' + myLibrary[book].author;
+    const pages = document.createElement('h3');
+    pages.innerHTML = myLibrary[book].pages + ' Pages';
+    const read = document.createElement('h3');
+    read.innerHTML = 'Read = ' + myLibrary[book].read;
     card.appendChild(title);
+    card.appendChild(author);
+    card.appendChild(pages);
+    card.appendChild(read);
     cardCatalogue.appendChild(card);
 }
 
-const holes = new Book('Holes', 'Louis Sacher', '257', 'read');
+const holes = new Book('Holes', 'Louis Sacher', '257', 'true');
 addBookToLibrary(holes);
 
-const autobioDH = new Book('Autobiography', 'Douglas Hofstadter', '1', 'read');
+const autobioDH = new Book('Autobiography', 'Douglas Hofstadter', '1', 'true');
 addBookToLibrary(autobioDH);
+
+showLibrary();
