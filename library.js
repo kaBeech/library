@@ -29,6 +29,7 @@ Book.prototype.addToLibrary = function() {
 }
 
 Book.prototype.createCard = function() {
+    const that = this;
     const card = document.createElement('div');
     card.classList.add('card');
     const title = document.createElement('h2');
@@ -37,8 +38,13 @@ Book.prototype.createCard = function() {
     author.innerHTML = 'Author: ' + this.author;
     const pages = document.createElement('h3');
     pages.innerHTML = this.pages + ' Pages';
-    const read = document.createElement('h3');
-    read.innerHTML = 'Read = ' + this.read;
+    const read = document.createElement('button');
+    if (this.read) {
+        read.innerHTML = 'Read';
+    } else {
+        read.innerHTML = 'Unread'
+    }
+    read.addEventListener('click', function() {that.toggleRead()});
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
