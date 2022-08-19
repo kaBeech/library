@@ -8,5 +8,6 @@
 
 .card {
     width: 10rem;
+    aspect-ratio: 1;
     border-style: solid;
 }
