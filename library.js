@@ -1,4 +1,7 @@
 const cardCatalogue = document.getElementById("cardCatalogue");
+const addNewBookButton = document.getElementById("addNewBookButton");
+addNewBookButton.addEventListener('click', function() {addNewBook()});
+
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -18,7 +21,7 @@ Book.prototype.toggleRead = function() {
     showLibrary();
 }
 
-Book.prototype.remove = function() {
+Book.prototype.removeFromLibrary = function() {
     myLibrary.splice(this.index, 1);
     showLibrary();
 }
@@ -38,6 +41,9 @@ Book.prototype.createCard = function() {
     author.innerHTML = 'Author: ' + this.author;
     const pages = document.createElement('h3');
     pages.innerHTML = this.pages + ' Pages';
+    const removeButton = document.createElement('button');
+    removeButton.innerHTML = 'Remove from Library';
+    removeButton.addEventListener('click', function() {that.removeFromLibrary()})
     const read = document.createElement('button');
     if (this.read) {
         read.innerHTML = 'Read';
@@ -49,6 +55,7 @@ Book.prototype.createCard = function() {
     card.appendChild(author);
     card.appendChild(pages);
     card.appendChild(read);
+    card.appendChild(removeButton)
     cardCatalogue.appendChild(card);
 }
 
@@ -59,6 +66,12 @@ function showLibrary() {
     for (book in myLibrary) {
         myLibrary[book].createCard();
     }
+}
+
+function addNewBook() {
+    // Create Form
+        // Form will have a submit button that also closes the form
+        alert('Success!');
 }
 
 const holes = new Book('Holes', 'Louis Sacher', '257', true);
