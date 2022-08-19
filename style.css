@@ -1,0 +1,12 @@
+.flex {
+    display: flex;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 10rem;
+    border-style: solid;
+}

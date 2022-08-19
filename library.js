@@ -1,3 +1,4 @@
+const cardCatalogue = document.getElementById("cardCatalogue");
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
