@@ -13,27 +13,25 @@ Book.prototype.info = function() {
     this.pages + ' pages, ' + this.read;
 }
 
-function addBookToLibrary(book) {
-    myLibrary.push(book);
+Book.prototype.remove = function() {
+    myLibrary.splice(this.index, 1);
 }
 
-function showLibrary() {
-    for (book in myLibrary) {
-        createCard(book);
-    }
+Book.prototype.addToLibrary = function() {
+    myLibrary.push(this);
 }
 
-function createCard(book) {
+Book.prototype.createCard = function() {
     const card = document.createElement('div');
     card.classList.add('card');
     const title = document.createElement('h2');
-    title.innerHTML = 'Title: ' + myLibrary[book].title;
+    title.innerHTML = 'Title: ' + this.title;
     const author = document.createElement('h3');
-    author.innerHTML = 'Author: ' + myLibrary[book].author;
+    author.innerHTML = 'Author: ' + this.author;
     const pages = document.createElement('h3');
-    pages.innerHTML = myLibrary[book].pages + ' Pages';
+    pages.innerHTML = this.pages + ' Pages';
     const read = document.createElement('h3');
-    read.innerHTML = 'Read = ' + myLibrary[book].read;
+    read.innerHTML = 'Read = ' + this.read;
     card.appendChild(title);
     card.appendChild(author);
     card.appendChild(pages);
@@ -41,10 +39,16 @@ function createCard(book) {
     cardCatalogue.appendChild(card);
 }
 
-const holes = new Book('Holes', 'Louis Sacher', '257', 'true');
-addBookToLibrary(holes);
+function showLibrary() {
+    for (book in myLibrary) {
+        myLibrary[book].createCard();
+    }
+}
 
-const autobioDH = new Book('Autobiography', 'Douglas Hofstadter', '1', 'true');
-addBookToLibrary(autobioDH);
+const holes = new Book('Holes', 'Louis Sacher', '257', true);
+holes.addToLibrary();
+
+const autobioDH = new Book('Autobiography', 'Douglas Hofstadter', '1', true);
+autobioDH.addToLibrary();
 
 showLibrary();
