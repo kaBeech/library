@@ -12,5 +12,20 @@
     <div id="cardCatalogue" class="flex wrap">
     </div>
     <button id="addNewBookButton">Add New Book</button>
+    <form action="" method="post"></form>
+        <fieldset id="newBookFieldset" hidden>
+            <legend>New Book</legend>
+            <div id="newBookFields" class="flex wrap">
+                <label for="newTitle">Title: </label>
+                <input type="text" name="newTitle" id="newTitle" placeholder="The Lion, the Witch, and the Wardrobe">
+                <label for="newAuthor">Author: </label>
+                <input type="text" name="newAuthor" id="newAuthor" placeholder="Salman Rushdie">
+                <label for="newPages">Pages: </label>
+                <input type="number" name="newPages" id="newPages" min="1" placeholder="469">
+                <label for="newRead">Read? </label>
+                <input type="checkbox" name="newRead" id="newRead">
+                <button id="submitNewBookButton" type="submit">Add to Library</button>
+            </div>
+        </fieldset>
 </body>
 </html>

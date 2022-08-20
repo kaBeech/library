@@ -1,6 +1,9 @@
-const cardCatalogue = document.getElementById("cardCatalogue");
-const addNewBookButton = document.getElementById("addNewBookButton");
-addNewBookButton.addEventListener('click', function() {addNewBook()});
+const cardCatalogue = document.getElementById('cardCatalogue');
+const newBookFieldset = document.getElementById('newBookFieldset');
+const addNewBookButton = document.getElementById('addNewBookButton');
+addNewBookButton.addEventListener('click', function() {showNewBookForm()});
+const submitNewBookButton = document.getElementById('submitNewBookButton');
+submitNewBookButton.addEventListener('click', function() {addNewBook()})
 
 const myLibrary = [];
 
@@ -68,10 +71,14 @@ function showLibrary() {
     }
 }
 
+function showNewBookForm() {
+    newBookFieldset.hidden = false;
+    addNewBookButton.hidden = true;
+}
+
 function addNewBook() {
-    // Create Form
-        // Form will have a submit button that also closes the form
-        alert('Success!');
+    newBookFieldset.hidden = true;
+    addNewBookButton.hidden = false;
 }
 
 const holes = new Book('Holes', 'Louis Sacher', '257', true);
